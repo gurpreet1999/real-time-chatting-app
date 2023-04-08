@@ -88,7 +88,7 @@ const UpdateGroupChatModal = ({ fetchMessages}) => {
         config
       );
 
-      console.log(data._id);
+     
      
       dispatch(selectChat(data))  //updated with the new data that we got
      dispatch(fecthChat()) //i am fetching the chat again so that list of chat get updated

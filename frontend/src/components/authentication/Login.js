@@ -50,7 +50,7 @@ const Login = () => {
         config
       );
 
-      console.log(data);
+     
       toast({
         title: "Login Successful",
         status: "success",
@@ -64,7 +64,7 @@ const Login = () => {
       setLoading(false);
       history("/chats");
     } catch (error) {
-      console.log(error);
+     
      
       toast({
         title: "Error Occured!",

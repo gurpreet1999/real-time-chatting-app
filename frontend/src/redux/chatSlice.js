@@ -8,13 +8,13 @@ let initialState = {
 };
 
 export const fecthChat = createAsyncThunk("chat/fetchChat", async (token) => {
-  console.log("hello");
+  
   const { data } = await axios.get("http://localhost:4000/v1/chat/", {
     headers: {
       authorization: `Bearer ${token}`,
     },
   });
-console.log(data)
+
   return data;
 });
 

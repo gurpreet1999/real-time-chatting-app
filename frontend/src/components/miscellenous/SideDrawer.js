@@ -99,7 +99,7 @@ const {notification}=useSelector(state=>state.notification)
   };
 
   const accessChat = async (userId) => {
-    console.log(userId);
+   
 
     try {
       setloadingchat(true);
@@ -110,7 +110,7 @@ const {notification}=useSelector(state=>state.notification)
         },
       };
       const { data } = await axios.post(`http://localhost:4000/v1/chat/`, { userId }, config);
-console.log(data)
+
       if (!chats.find((c) => c._id === data._id)) dispatch(fecthChat(user.token))
       
       dispatch(selectChat(data))

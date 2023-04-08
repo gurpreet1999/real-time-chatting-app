@@ -28,7 +28,7 @@ const accessChat = async (req, res, next) => {
   //     select: "name pic email",
   //   });
 
-  console.log(isChat);
+  
 
   if (isChat.length > 0) {
     return res.send(isChat);
@@ -78,7 +78,7 @@ const createGroupChat = async (req,res,next) => {
   if (users.length < 2) {
     return res.status(400).send("more than 2 user are requred to form a group");
   }
-console.log(req.user)
+
   
   users.push(req.user._id);
  

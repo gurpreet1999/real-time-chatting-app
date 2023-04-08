@@ -21,8 +21,7 @@ import {
 const ScrollableChat = ({ messages }) => {
   const elementRef = useRef(null);
 const {user}=useSelector(state=>state.user)
-console.log(user.id)
-console.log(messages)
+
 useEffect(() => {
     
   elementRef.current?.scrollIntoView()

@@ -10,7 +10,7 @@ await mongoose.connect(process.env.MONGOURL)
 console.log("mongoDb connected")
 
 }catch(error){
-console.log(error)
+console.log(err)
 
 }
 

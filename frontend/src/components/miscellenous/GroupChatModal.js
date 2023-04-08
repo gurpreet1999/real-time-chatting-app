@@ -65,7 +65,7 @@ const dispatch=useDispatch()
         },
       };
       const { data } = await axios.get(`http://localhost:4000/v1/user/alluser?search=${search}`, config);
-      console.log(data);
+    
       setLoading(false);
       setSearchResult(data.user);
     } catch (error) {
@@ -110,7 +110,7 @@ const dispatch=useDispatch()
         },
         config
       );
-      console.log(data)
+      
       dispatch(fecthChat(user.token))
     
       onClose();

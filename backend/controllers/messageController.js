@@ -8,7 +8,7 @@ const sendMessage=async(req,res,next)=>{
 
     try{
         const {content,chatId}=req.body
-        console.log(content,chatId)
+       
         if(!content || !chatId){
             return next(new errorHandler("ok"))
         }
@@ -54,7 +54,7 @@ res.json({message})
 const allMessage=async(req,res,next)=>{
 
 try{
-console.log(req.params.chatId)
+
   const  allmessage=await MESSAGE.find({chat:req.params.chatId}).populate('sender' ,"name email pic").populate("chat")
 return res.status(201).json({
     allmessage:allmessage

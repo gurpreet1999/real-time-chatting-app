@@ -5,7 +5,7 @@ const errorHandler = require("../utils/errorHandler");
 const registerUser = async (req, res, next) => {
   try {
     let { name, email, password, pic } = req.body;
-    console.log(name,email,password)
+    
 
 
 
@@ -30,7 +30,7 @@ const registerUser = async (req, res, next) => {
       pic,
     });
 
-    console.log(createdUser)
+ 
 
     res.status(201).json({
       id: createdUser._id,
@@ -52,13 +52,13 @@ const registerUser = async (req, res, next) => {
 const loginUser = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    console.log(email, password);
+  
     if ((!email, !password)) {
       return next(new errorHandler("pls add all the field ", 400));
     }
 
     const user = await USER.findOne({ email: email });
-    console.log(user);
+    
     if (!user) {
       return next(new errorHandler("invalid email or password ", 400));
     }
