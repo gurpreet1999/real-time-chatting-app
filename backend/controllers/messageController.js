@@ -8,6 +8,7 @@ const sendMessage=async(req,res,next)=>{
 
     try{
         const {content,chatId}=req.body
+        console.log(content,chatId)
         if(!content || !chatId){
             return next(new errorHandler("ok"))
         }

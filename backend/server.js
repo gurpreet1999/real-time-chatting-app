@@ -39,6 +39,7 @@ const io = require("socket.io")(server, {
 io.on("connection", (socket) => {
   console.log("Connected to socket.io");
   socket.on("setup", (userData) => {
+    console.log(userData)
     socket.join(userData._id);
     socket.emit("connected");
   });
@@ -50,16 +51,23 @@ io.on("connection", (socket) => {
   socket.on("typing", (room) => socket.in(room).emit("typing"));
   socket.on("stop typing", (room) => socket.in(room).emit("stop typing"));
 
-  socket.on("new message", (newMessageRecieved) => {
+  socket.on("newMessage", (newMessageRecieved) => {
     var chat = newMessageRecieved.chat;
-
-    if (!chat.users) return console.log("chat.users not defined");
-
+  
+    if (!chat.users){
+     console.log("chat.users not defined");
+     return;
+    } 
+let room;
     chat.users.forEach((user) => {
-      if (user._id == newMessageRecieved.sender._id) return;
+      if (user._id !== newMessageRecieved.sender._id) {
 
-      socket.in(user._id).emit("message recieved", newMessageRecieved);
+       room=user._id
+      }
+    
+     
     });
+  io.emit("newMessage", newMessageRecieved);
   });
 
   socket.off("setup", () => {

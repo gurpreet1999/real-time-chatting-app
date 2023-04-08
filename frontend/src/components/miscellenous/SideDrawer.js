@@ -31,7 +31,7 @@ import { Effect } from "react-notification-badge";
 import { getSender } from "../../config/chatLogic";
 import UserListItem from "../userAvatar/UserListItem";
 import { fecthChat, selectChat } from "../../redux/chatSlice";
-import { setNotification } from "../../redux/notificationSlice";
+import { setNotification,removeFromNotification } from "../../redux/notificationSlice";
 
 
 
@@ -179,10 +179,11 @@ onClose()
               {!notification.length && "No New Messages"}
               {notification.map((notif) => (
                 <MenuItem
-                  key={notif._id}
+                  // key={notif._id}
                   onClick={() => {
+                
+                  dispatch(removeFromNotification(notification.filter((n) => n !== notif)));
                   dispatch(selectChat(notif.chat))
-                  setNotification(notification.filter((n) => n !== notif));
                   }}
                 >
                   {notif.chat.isGroupChat

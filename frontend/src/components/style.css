@@ -1,7 +1,11 @@
 .messages {
-  min-height: 93%;
-    display: flex;
-    flex-direction: column;
-    overflow-y: scroll;
-    scrollbar-width: none;
-  }
+  display: flex;
+  flex-direction: column;
+overflow-y: scroll;
+  scrollbar-width:none !important; 
+  height: 525px;
+}
+
+.messages::-webkit-scrollbar {
+  display: none;
+}
